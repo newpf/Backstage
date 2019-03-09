@@ -1,0 +1,86 @@
+
+		ul{
+			list-style: none;
+			margin: 0;
+		}
+
+		.layui-container{
+			width: 100%;
+			padding: 0;
+			overflow: hidden;
+		}
+		.site-content{
+			height: 933px;
+		}
+		.layui-col-lg2{
+			background:#1E9FFF ;
+			height: 100%;
+		}
+		.grid{
+			width: 100%;
+		}
+		.site-content {
+		    margin-left: 200px;
+		}
+		.layui-header{
+			margin: 80px 40px 40px;
+			width: 100px;
+			height: 150px;
+			font: 12px "微软雅黑";
+			line-height: 20px;
+			text-align: center;
+		}
+		.layui-header img{
+			border: 1px solid rgba(255,255,255,0.1);
+			border-radius: 50%;
+		}
+		.layui-header span{
+			display: block;
+		}
+		.layui-header .color{
+			margin-top: 15px;
+			color: #737383;
+		}
+		.layui-header .color-tow{
+			font: 15px "宋体";
+			margin-top: 5px;
+			color: #93D1FF;
+			font-weight:bold;
+		}
+		.layui-input{
+			width: 20%;
+		}
+		.layui-form-select{
+			width: 20%;
+		}
+		.layui-select-title input{
+			width: 100%;
+		}
+		.layui-table{
+			text-align: center;
+		}
+		.layui-tab{
+			height: 100%;
+		}
+		.layui-tab-content{
+			height: 100%;
+		}
+		.layui-show{
+			height: 100%;
+		}
+		.x-iframe{
+			width: 100%;
+			height: 100%;
+		}
+		.layui-tab{
+			margin: 0;
+		}
+		.right{
+			float: right;
+			margin-right: 10%;
+		}
+		.right dd{
+			border-bottom:1px solid #E2E2E2;
+			line-height: 32px;
+		}
+		

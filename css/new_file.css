@@ -1,0 +1,121 @@
+											/*登录*/
+	
+	.box{
+			height: 933px;
+			background: url('../index/img/timg (1).jpg') center;
+			background-size:100% 100%;
+			overflow: hidden;
+		}
+		 .box-row{
+		 	margin: 0 auto;
+		 	margin-top:10% ;
+		 	height: 50%;
+		 	width: 20%;
+		 	background: rgba(246,246,246,0.2);
+		 	border: 1px solid rgba(246,246,246,0.8);
+		 	border-radius:10px ;
+		 }
+		 .avatar{
+		 	margin: 50px auto;
+		 	width: 100px;
+		 	height: 100px;
+		 	border: 2px solid rgba(246,246,246,0.8);
+		 	background: url('../index/img/20190226142123.jpg') center;
+		 	background-size:100% 100%;
+		 	border-radius:50% ;
+		 }
+		 .search{
+		 	height: 7%;
+		 	width: 100%;
+		 	margin: 0 auto;
+		 	margin-bottom:30px ;
+		 	text-align: center;
+			font: 14px "微软雅黑" ;
+		 	
+		 }
+		 input{
+		 	outline:none;
+		 	text-align: center;
+		 	height: 100%;
+		 	width: 80%;
+		 	display: inline-block;
+		 	margin-bottom: 30px ;
+		 	line-height: 32px;
+		 	color: #666666;
+		 	border-radius:15px ;
+		 	margin: 0 auto;
+		 	border: 1px solid rgba(246,246,246,0.8);
+		 	padding: 0;
+		 	font: 14px "微软雅黑" ;
+		 }
+		 .search:ho ver{
+		 	cursor:pointer;
+		 }
+		 span:hover{
+		 	cursor:pointer;
+		 }
+		 .red{
+		 	background: rgba(239,17,17,0.4);
+		 }
+		 .txt{
+		 	width: 60%;
+		 	margin: 0 20%;
+		 	font: 12px "微软雅黑";
+		 	line-height: 30px;
+		 	color: rgba(239,17,17,0.4);
+		 }
+		 .txt-tow{
+		 	float: right;
+		 }
+		 .txt-tow:hover{
+		 	cursor:pointer;
+		 }
+	
+	
+	                                    /*注册*/
+	.register-box{
+		height: 100%;
+		width: 100%;
+		background: rgba(17,14,14,0.2);
+		display: none;
+	}
+	
+	.register{
+		margin: 0 auto;
+	 	padding-top:20% ;
+	 	height: 50%;
+	 	width: 20%;
+	 	border-radius:10px ;
+	}
+	.search-tow{
+		width: 25%;
+		height: 100%;
+		float: right;
+		margin-right:10% ;
+		border: 1px solid rgba(239,17,17,0.8);
+		color: rgba(239,17,17,0.8);
+		font: 12px "微软雅黑";
+		border-radius: 15px;
+		line-height: 32px;
+	}
+	.img{
+		height: 100%;
+	 	width: 45%;
+	 	display: inline-block;
+		border: 1px solid rgba(246,246,246,0.8);
+	 	margin-bottom: 30px ;
+	 	line-height: 32px;
+	 	color: #666666;
+	 	border-radius:15px ;
+	 	margin-left: ;
+	}
+	.ch{
+		background: url("../index/img/u=2241666278,698607827&fm=26&gp=0.jpg") center;
+		background-size:100% 100% ;
+		border: 0;
+		border-radius: 0;
+	}
+	.aring input{
+		height: 100%;
+	 	width: 45%;
+	}
