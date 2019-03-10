@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MDUI-日历</title>
+		<link rel="stylesheet" href="../../layui/layui-v2.4.5/layui/css/layui.css">
+		<script src="../../chajian/jquery-3.2.1.min.js"></script>
+		<script src="../../layui/layui-v2.4.5/layui/layui.js"></script>
+    <style>
+        /*日历CSS*/
+        /*日历*/
+        .calendar {margin-bottom: 20px; font-size: 0;}
+        .calendar li{display: inline-block; vertical-align: middle; width: 100px; height: 45px; line-height: 20px; padding: 10px 0 5px 0; margin-right: -1px; margin-bottom: -1px; border: 1px solid #e2e2e2; font-size: 12px; text-align: center; color: #666; transition: all .3s; -webkit-transition: all .3s;}
+        /*日历年月选择*/
+
+        /*日历表头*/
+        .calendar-tilte {margin-bottom: 0px; font-size: 0;}
+        .calendar li .calendar-day{display: inline-block;font-weight:800;;font-size: 32px }
+        .calendar-tilte li{display: inline-block; vertical-align: middle; width: 100px; height: 40px;background-color: #80CBC4; line-height: 40px; padding:0px; margin-right: -1px; margin-bottom: -1px; border: 1px solid #e2e2e2; font-size: 14px; text-align: center; color: #666; transition: all .3s; -webkit-transition: all .3s;}
+        /*日历内容*/
+        .calendar li .calendar-day{display: inline-block;font-weight:200;;font-size: 24px }
+        .calendar li .calendar-mark{color: #c2c2c2;}
+        .calendar li .doc-icon-fontclass{height: 40px; line-height: 20px; padding: 0 5px; font-size: 13px; color: #333; }
+        /*日历鼠标跟随*/
+        .calendar li:hover{background-color: #B2DFDB; color: #000;}
+
+
+
+
+    </style>
+<body>
+
+    <!------------开始-------------->
+    <fieldset class="layui-elem-field" style="margin: 15px;width: 730px;">
+        <legend>
+            <span class="layui-breadcrumb">
+              <a><cite>考勤模块环境管理</cite></a>
+              <a><cite>法定假日管理</cite></a>
+            </span>
+        </legend>
+        <div class="layui-field-box" style="width: 730px;">
+            <div class="layui-form" style="margin: -5px 253px;width: 710px;" >
+                <div class="layui-input-inline">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">选择时间:</label>
+                        <div class="layui-input-inline" style="width: 120px;">
+                            <input type="text" id="select_ny" name="kssj"  autocomplete="off" class="layui-input" placeholder="请选择年月">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <div class="layui-btn-group">
+                            <button class="layui-btn"><i class="layui-icon">&#xe65a;</i></button>
+                            <button class="layui-btn"><i class="layui-icon">&#xe603;</i></button>
+                            <button class="layui-btn"><i class="layui-icon">&#xe602;</i></button>
+                            <button class="layui-btn"><i class="layui-icon">&#xe65b;</i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 710px;margin: 10px;">
+                <div>
+                    <ul class="calendar-tilte">
+                        <!--日历头-->
+                        <li>
+                            <div class="calendar-day">星期一</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">星期二</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">星期三</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">星期四</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">星期五</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">星期六</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">星期日</div>
+                        </li>
+                    </ul>
+
+                    <ul class="calendar">
+                        <!--第一周-->
+                        <li>
+                            <div class="calendar-day">27</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">28</div>
+                            <div class="calendar-mark">情人节</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">29</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">30</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">31</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">1</div>
+                            <div class="calendar-mark">周休日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">2</div>
+                            <div class="calendar-mark">周休日</div>
+                        </li>
+                        <!--第二周-->
+                        <li>
+                            <div class="calendar-day">3</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+
+                            <div class="calendar-day">4</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">5</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">6</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">7</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">8</div>
+                            <div class="calendar-mark">周休日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">9</div>
+                            <div class="calendar-mark">周休日</div>
+                        </li>
+                        <!--第三周-->
+                        <li>
+                            <div class="calendar-day">10</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">11</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">12</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">13</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">14</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">15</div>
+                            <div class="calendar-mark">周休日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">16</div>
+                            <div class="calendar-mark">周休日</div>
+                        </li>
+                        <!--第四周-->
+                        <li>
+                            <div class="calendar-day">17</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">18</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">19</div>
+                            <div class="calendar-mark">工作日</div>
+
+                        </li>
+                        <li>
+                            <div class="calendar-day">20</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">21</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">22</div>
+                            <div class="calendar-mark">周休日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">23</div>
+                            <div class="calendar-mark">周休日</div>
+                        </li>
+                        <!--第五周-->
+                        <li>
+                            <div class="calendar-day">24</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">25</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">26</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">27</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">28</div>
+                            <div class="calendar-mark">工作日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">1</div>
+                            <div class="calendar-mark">周休日</div>
+                        </li>
+                        <li>
+                            <div class="calendar-day">2</div>
+                            <div class="calendar-mark">周休日</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+
+<script>
+    $(document).ready(function () {
+        layui.use(['element','form', 'layer', 'jquery', 'table', 'laydate'], function () {
+            var form = layui.form,
+                    element = layui.element, //导航的hover效果、二级菜单等功能，需要依赖element模块
+                    layer = layui.layer,
+                    table = layui.table,
+                    laydate = layui.laydate;
+
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#select_ny'
+                ,type: 'month'
+                ,range: false //开启左右面板范围选择 或 range: '~' 来自定义分割字符
+            });
+        });
+    });
+</script>
+</body>
+</html>

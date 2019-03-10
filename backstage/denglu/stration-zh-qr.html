@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="../../layui/layui-v2.4.5/layui/css/layui.css">
+		<script src="../../chajian/jquery-3.2.1.min.js"></script>
+		<script src="../../layui/layui-v2.4.5/layui/layui.js"></script>
+		<style>
+			.layui-form{
+				width: 20%;
+				margin: 0 auto;
+				padding-top:10% ;
+			}
+			input{
+				text-align: center;
+			}
+			.layui-btn{
+				width: 100%;
+			}
+			.layui-form-item{
+				margin-bottom: 25px;
+			}
+			.layui-header{
+				font:20px "微软雅黑";
+				line-height: 30px;
+				text-align: center;
+			}
+			label{
+				position: absolute;
+				width: 38px;
+			    line-height: 36px;
+			    text-align: center;
+			    color: #d2d2d2;
+			}
+			.left{
+				width: 50%;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<form class="layui-form" >
+			<div class="layui-form-item input-item">
+				<label class=" layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+				<input type="password" name="password" id="LAY-user-login-password" lay-verify="required" placeholder="新密码" class="layui-input">
+			</div>
+			<div class="layui-form-item input-item">
+				<label class=" layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+				<input type="password" name="repass" id="LAY-user-login-repass" lay-verify="required" placeholder="确认密码" class="layui-input">
+			</div>
+			<div class="layui-form-item btnn" lay-submit style="height: 38px; width: 100%; line-height: 38px; text-align: center;background: #009688;cursor: pointer;">
+				<div class="btn" style="color: #fff;">重置新密码</div>
+			</div>
+		</form>
+		<script>
+				$(document).ready(function(){
+		    	layui.use(['element','form','jquery'],function(){
+		    		var element = layui.element,
+		    			$ = layui.jquery,
+		    			form = layui.form
+	//	    				判断当内容都不等于''的时候 点击登陆跳转页面
+						$('.btn').click(function(){
+							var A=$("input:eq(0)").val(),
+					    		B=$("input:eq(1)").val();
+
+							if(A != B || A =='' && B == ''){
+								return layer.msg('两次密码输入不一致');
+							}else{
+								 layer.msg('密码已成功重置', {
+						          time: 1000
+						          }, function(){
+						            location.href = 'stration-dl.html'; //跳转到登入页
+						          });
+
+							}
+						})
+		    		})
+		    })
+		</script>
+		
+	</body>
+</html>
+

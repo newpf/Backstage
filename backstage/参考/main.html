@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>LWUIS 莱唔一卡通管理平台 后台管理系统 V1.0.1</title>
+    <!-- layUI 框架 -->
+    <link rel="stylesheet" href="../project/layui/css/layui.css">
+
+		<link rel="stylesheet" href="../css/stration.css" />
+    <script src="./js/lwuis.js"></script>
+    <script>
+        userChkLogin ();
+    </script>
+    <style>
+        .layui-body {
+            top: 0px;
+            height: auto;
+            background: #F2F2F2;
+            overflow: hidden;
+        }
+
+        .layui-tab {
+            margin: 0px 0px;
+        }
+
+        .layui-tab-item iframe {
+            width: 100%;
+            border: 0;
+            height: 100%;
+        }
+
+        .layui-tab-content {
+            margin: 0px;
+            padding: 0px;
+            background: #F1F2F7;
+            height: auto;
+        }
+
+        .layui-tab-content .layui-tab-item {
+            background: #F1F2F7;
+        }
+
+        .layui-tab-content .layui-tab-item iframe {
+            width: 100%;
+            border: 0;
+            height: 100%;
+        }
+
+        .x-iframe {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+
+        .user-info {
+            width: 200px;
+            height: auto;
+            padding: 0px;
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+
+        .layui-side-scroll .user-info .photo {
+            display: block;
+            width: 70px;
+            height: 70px;
+            margin-left: 60px;
+            padding: 0px;
+        }
+
+        .layui-side-scroll .user-info .photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 4px solid #44576B;
+        }
+
+        .layui-side-scroll .user-info p {
+            display: block;
+            width: 100%;
+            height: 24px;
+            color: #ffffff;
+            font-size: 11px;
+            line-height: 20px;
+            text-align: center;
+            margin: 15px 0px 0px 5px;
+        }
+
+        #top-image {
+            background: linear-gradient(
+                    rgba(0, 0, 0, 0.2),
+                    rgba(0, 0, 0, 0.2)
+            ), url('../../images/lockscreenbg.jpg') no-repeat fixed;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 0;
+            height: 100%;
+        }
+
+        #clock {
+            font-family: 'Share Tech Mono', monospace;
+            color: #ffffff;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            top: 25%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            color: #daf6ff;
+            text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);
+        }
+
+        #clock .time {
+            letter-spacing: 0.05em;
+            font-size: 30px;
+            padding: 5px 0;
+        }
+
+        #clock .date {
+            letter-spacing: 0.1em;
+            font-size: 24px;
+        }
+
+        #clock .text {
+            letter-spacing: 0.1em;
+            font-size: 12px;
+            padding: 20px 0 0;
+        }
+
+        .admin-header-lock {
+            width: 320px;
+            height: 170px;
+            padding: 20px;
+            position: relative;
+            text-align: center;
+        }
+
+        .admin-header-lock-img {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+        }
+
+        .admin-header-lock-img img {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+        }
+
+        .admin-header-lock-name {
+            color: #009688;
+            margin: 75px 0 40px 80px;
+        }
+
+        .input_btn {
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .admin-header-lock-input {
+            width: 180px;
+            color: #fff;
+            background-color: #009688;
+            float: left;
+            margin: 0 10px 0 40px;
+            border: none;
+        }
+
+        .admin-header-lock-input::-webkit-input-placeholder {
+            color: #fff;
+        }
+
+        .admin-header-lock-input::-moz-placeholder {
+            color: #fff;
+        }
+
+        .admin-header-lock-input::-ms-input-placeholder {
+            color: #fff;
+        }
+
+        .admin-header-lock-input:-moz-placeholder {
+            color: #fff;
+        }
+
+        #unlock {
+            float: left;
+        }
+
+        #lock-box p {
+            color: #e60000;
+        }
+
+        .lock-wrapper {
+            margin: 20% auto;
+            max-width: 400px;
+        }
+
+        #time {
+            width: 100%;
+            color: #fff;
+            font-size: 60px;
+            margin-bottom: 80px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .lock-box {
+            background: rgba(255, 255, 255, .3);
+            padding: 20px;
+            border-radius: 3px;
+            -webkit-border-radius: 3px;
+            position: relative;
+            height: 215px;
+        }
+
+        .lock-wrapper img {
+            display: block;
+            width: 90px;
+            height: 90px;
+            position: absolute;
+            left: 50%;
+            top: -45px;
+            margin-left: -45px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border: 5px solid #fff;
+        }
+
+        .lock-wrapper h1 {
+            display: block;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+            padding: 50px 0 0 0;
+            margin-bottom: 23px;
+        }
+
+        .lock-wrapper .lock-form {
+            width: 100%;
+            height: 105px;
+        }
+
+        .lock-wrapper .lock-form .layui-form-item {
+            width: 100%;
+            height: 50px;
+            padding: 0px;
+            margin: 0px;
+            margin-bottom: 15px;
+        }
+
+        .lock-wrapper .lock-form .layui-form-item input[type='password'] {
+            width: 60%;
+            height: 40px;
+            margin: 0 auto;
+            border: solid 1px #E2E2E4;
+            cursor: auto;
+            font-size: 14px;
+            user-select: text;
+            text-rendering: auto;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+        }
+
+        .lock-wrapper .lock-form .layui-form-item button .layui-btn {
+            margin-left: 35%;
+        }
+
+    </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo"><img src="../../images/vr_login.png" width="150px" height="40px"/></div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <span style="line-height: 60px;margin-left: 200px;">
+            <i class="iconfont icon-caidan" style="display:inline;font-size:30px;color: #ffffff;" id="menu_close"></i>
+        </span>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item lockcms" pc>
+                <a href="javascript:;"><i class="iconfont icon-lock1"></i><cite>锁屏</cite></a>
+            </li>
+
+
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="../../images/user-001.jpg" class="layui-nav-img">
+                    用户中心
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                    <dd><a id="men_exit" href="javascript:;">退出系统</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black x-side">
+        <div class="layui-side-scroll">
+            <!-- 操作员信息      -->
+            <div class="user-info">
+                <div class="photo">
+                    <img src="../../images/user-001.jpg" class="layui-nav-img">
+                </div>
+                <p id="sys_user_msg">
+
+                </p>
+            </div>
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree site-demo-nav" lay-filter="side">
+                <li class="layui-nav-item">
+                    <a class="javascript:;" href="javascript:;"><i class="iconfont icon-shezhi"></i> 系统环境管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" _href="./lwuis_zdbgl.html"><i
+                                class="iconfont icon-gonglve"></i><cite> 系统字典管理</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_xtcdgl.html"><i
+                                class="iconfont icon-caidan"></i><cite> 系统菜单管理</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_qxdmgl.html"><i class="iconfont icon-pengyoufill"></i><cite>
+                            权限代码管理</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_xtjsgl.html"><i
+                                class="iconfont icon-bumen1"></i><cite> 角色权限管理</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_czygl.html"><i class="iconfont icon-wode"></i><cite>
+                            操作用户管理</cite></a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="javascript:;" href="javascript:;"><i class="iconfont icon-shezhi"></i> 硬件设备管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" _href="./lwuis_kzqsbgl.html"><i
+                                class="iconfont icon-dingdan"></i><cite> 控制器设备管理</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_mjsbgl.html"><i
+                                class="iconfont icon-fangxingxuanzhong"></i><cite> 门禁设备管理</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_nbtxl.html"><i class="iconfont icon-leimu"></i><cite>
+                            员工信息管理</cite></a></dd>
+                        <dd><a href="javascript:;"><i class="iconfont icon-leimu"></i><cite> 设备远程控制</cite></a></dd>
+                        <dd><a href="javascript:;"><i class="iconfont icon-leimu"></i><cite> 设备状态查询</cite></a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;"><i class="iconfont icon-qiapianxingshi"></i> 运行环境管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" _href="./lwuis_nbbmgl.html"><i class="iconfont icon-bumen"></i><cite>
+                            内部部门管理</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_bglcgl.html"><i class="iconfont icon-zhusu"></i><cite>
+                            办公楼层管理</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_gzfjgl.html"><i class="iconfont icon-zhusu"></i><cite>
+                            工作房间管理</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_yglbgl.html"><i class="iconfont icon-leimu"></i><cite>
+                            人员类别管理</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_ygfzgl.html"><i class="iconfont icon-leimu"></i><cite>
+                            人员分组管理</cite></a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;"><i class="iconfont icon-shenpi"></i> 人员信息管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" _href="./lwuis_ygxxgl.html"><i class="iconfont icon-geren"></i><cite>
+                            人员信息管理</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_ygfzgl.html"><i class="iconfont icon-leimu"></i><cite>
+                            员工信息管理</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_ygfzgl.html"><i
+                                class="iconfont icon-shenfen"></i><cite> 批量制作员工卡</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_ygfzgl.html"><i
+                                class="iconfont icon-leimu"></i><cite> </cite></a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;"><i class="iconfont icon-qiapianxingshi"></i> 员工考勤管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" _href="./lwuis_dwbmgl.html"><i class="iconfont icon-bumen"></i><cite>
+                            考勤环境设置</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_lcfjgl.html"><i class="iconfont icon-zhusu"></i><cite>
+                            法定假日管理</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_yglbgl.html"><i class="iconfont icon-leimu"></i><cite>
+                            考勤批次管理</cite></a></dd>
+                        <dd><a href="javascript:;" _href="./lwuis_ygfzgl.html"><i class="iconfont icon-leimu"></i><cite>
+                            考勤报表生成</cite></a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;"><i class="iconfont icon-caiwu1"></i> 历史数据统计</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;"><i class="iconfont icon-leimu"></i><cite> 来访记录统计</cite></a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div>
+            <!-- Tab选项卡 -->
+            <div class="layui-tab layui-tab-card" lay-filter="x-tab" lay-allowClose="true">
+                <ul class="layui-tab-title">
+                    <li class="layui-this layui-unselect">首页<i class="layui-icon layui-unselect layui-tab-close"></i>
+                    </li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <iframe frameborder="0" src="./welcome.html" class="x-iframe"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        系统开发 莱唔科技 2017 ©版权所有 V1.0.1
+    </div>
+</div>
+<script src="../jquery-3.2.1.min.js"></script>
+<script src="../project/layui-v2.4.5/layui/layui.js"></script>
+<script src="../project/layui-v2.4.5/layui/layui.js"></script>
+<script>
+    //JavaScript代码区域
+
+    $(document).ready(function () {
+            layui.use(['element', 'carousel','form', 'layer', 'jquery', 'table', 'laydate'], function () {
+                var element = layui.element
+                        ,form = layui.form
+                        ,layer = layui.layer
+                        ,table = layui.table
+                        ,laydate = layui.laydate;
+
+                //侧边栏 展开和关闭
+                if ($(window).width() < 750) {
+                    trun = 0;
+                    $('.x-slide').css('background-position', '0px -61px');
+                } else {
+                    trun = 1;
+                }
+                $('#menu_close').click(function (event) {
+                    if (trun) {
+                        $('.x-side').animate({left: '-200px'}, 200).siblings('.layui-body').animate({left: '0px'}, 200).siblings('.layui-footer').animate({left: '0px'}, 200);
+                        $(this).css('background-position', '0px -61px');
+                        trun = 0;
+                    } else {
+                        $('.x-side').animate({left: '0px'}, 200).siblings('.layui-body').animate({left: '200px'}, 200).siblings('.layui-footer').animate({left: '200px'}, 200);
+                        $(this).css('background-position', '0px 0px');
+                        trun = 1;
+                    }
+
+                });
+                $("#sys_user_msg").html('当前用户:'+user_token.UserName);
+
+                //用户退出 操作函数
+                function f_UserExit() {
+
+                    layer.confirm('确定要退出系统吗?', {icon: 3, title:'确认信息'}, function(index){
+                        //do something
+                        //关闭弹层后 执行操作
+                        //layer.close(index);
+                        var layerloginindex = LayerLoading(0, false);
+                        $.ajax({
+                            type: "POST",
+                            url: "../Server/Server_login.php",
+                            async: false,  //false同步   =true 异步
+                            data: "lb=UP&cz=TC&uid="+user_token.uid,
+                            success: function (data) {
+                                if ($.parseJSON(data).success == false) {
+                                    layer.close(index);
+                                    //取消屏蔽层
+                                    LayerLoading(layerloginindex, true);
+                                    //不成功,弹出提示信息
+                                    layer.msg($.parseJSON(data).msg);
+                                } else {
+                                    layer.close(index);
+                                    //取消屏蔽层
+                                    LayerLoading(layerloginindex, true);
+                                    sessionStorage.removeItem("token");
+                                    //跳转至登陆页面
+                                    window.location.href='./index.html';
+
+                                    //否则清除Cookie
+                                    //delCookie("name");
+                                    //delCookie("chk");
+                                }
+                            }
+                        });
+
+                    });
+                }
+                //系统菜单退出
+                $("#men_exit").on("click", function () {
+                    f_UserExit();
+                });
+                //监听导航点击
+                element.on('nav(side)', function (elem) {
+                    var title = elem.find('cite').text();
+                    //layui 2.3.0 版,elem 返回的是当前 A元素,需要在父元素中找 _href 值
+                    //var url = elem.find('a').attr('_href');
+                    var url = elem.offsetParent().find('a').attr('_href');
+                    //如果不是节点
+                    if (url == undefined) {
+                        return false;
+                    } else {
+                        //左边栏 退出系统 click 事件
+                        if (title == "退出系统") {
+                            f_UserExit();
+                        } else {
+                            //其他 左边栏 click 事件
+                            //查看是否存在TAB选项卡 是的话激活显示
+                            for (var i = 0; i < $(".x-iframe").length; i++) {
+                                //alert(url);
+                                t = $('.x-iframe').eq(i).attr('src').split('?');
+
+
+                                if (t[0] == url) {
+                                    //console.log(i);
+                                    element.tabChange('x-tab', i);
+                                    return;
+                                }
+                            }
+                            //如果循环没有找到对应的TAB选项卡，则新建一个TAB
+                            // alert(url);
+                            //选项卡最大打开数！
+                            var maxTab = 8;
+
+                            if ($('.layui-tab-title li').length > (maxTab - 1)) {
+                                //layer.msg('系统只允许打开个选项卡，请关闭不再使用的选项卡点击菜单！', {icon: 6});
+                                layer.msg('系统只允许打开个选项卡，请关闭不再使用的选项卡点击菜单！', {
+                                    icon: 6,
+                                    time: 5000 //2秒关闭（如果不配置，默认是3秒）
+                                }, function () {
+                                    //do something
+                                });
+                            } else {
+                                if (i == $('.layui-tab-title li').length) {
+
+                                    rand = Math.random();
+                                    if (url.length == 0 || url.indexOf("javascript") > -1) {
+                                        return;
+                                    } else if (url.indexOf("?"> -1)) {
+                                        url = url + "&versions=" + rand;
+                                    } else {
+                                        url = url + "?versions=" + rand;
+                                    }
+
+                                    res = element.tabAdd('x-tab', {
+                                        title: title//用于演示ti
+                                        , content: '<iframe frameborder="0" src="' + url + '" class="x-iframe"></iframe>'
+                                        , id: i
+                                    });
+                                    element.tabChange('x-tab', i);
+                                }
+                            }
+                        }
+                        //element.tabChange('x-tab', $('.layui-tab-title li').length-1);
+                        //$('.layui-tab-title li').eq(0).find('i').remove();
+                    }
+
+                });
+
+
+
+                function lockPage() {
+                    // var xm = '{$gly['cxm']}';访客管理员系统
+                    // console.log({$gly['cxm']});
+                    var index = layer.open({
+                        title: false,
+                        type: 1,
+                        shadeClose: true,
+                        skin: 'yourclass',
+                        content: '<div id="top-image">' + ' <div class="lock-wrapper" id="lock-box" >' +
+                        '<div id="clock">' +
+                        '<p class="date"></p>' +
+                        '<p class="time"></p>' +
+                        '</div>' +
+                        '<div class="lock-box"><img src="../../images/user-001.jpg"/>' +
+                            // '<form class="layui-form lock-form">'+
+                        '<p class="admin-header-lock-name" id="lockUserName">莱唔一卡通平台访客管理系统</p>' +
+                        '<div class="input_btn">' +
+                        '<input type="password" class="admin-header-lock-input layui-input" autocomplete="off" placeholder="请输入密码解锁.." name="lockPwd" id="lockPwd" />' +
+                        '<button class="layui-btn" id="unlock">解锁</button>' +
+                        '</div>' +
+                        '<p align="center">请输入操作员密码</p>' +
+                            // '</form>'+
+                        '</div>' +
+                        '</div>',
+                        closeBtn: 0,
+                        shade: 0.9
+                    });
+                    layer.full(index);
+
+
+                    var week = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+                    var timerID = setInterval(updateTime, 1000);
+                    updateTime();
+                    function updateTime() {
+                        var cd = new Date();
+                        clock.time = zeroPadding(cd.getHours(), 2) + ':' + zeroPadding(cd.getMinutes(), 2) + ':' + zeroPadding(cd.getSeconds(), 2);
+                        clock.date = zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth() + 1, 2) + '-' + zeroPadding(cd.getDate(), 2) + ' ' + week[cd.getDay()];
+                    }
+
+                    function zeroPadding(num, digit) {
+                        var zero = '';
+                        for (var i = 0; i < digit; i++) {
+                            zero += '0';
+                        }
+                        return (zero + num).slice(-digit);
+                    }
+
+                    $(".admin-header-lock-input").focus();
+                }
+
+                $(".lockcms").on("click", function () {
+                    window.sessionStorage.setItem("lockcms", true);
+                    lockPage();
+                });
+                // 判断是否显示锁屏
+                if (window.sessionStorage.getItem("lockcms") == "true") {
+                    lockPage();
+                }
+                // 解锁
+                $("body").on("click", "#unlock", function () {
+                    if ($(this).siblings(".admin-header-lock-input").val() == '') {
+                        layer.msg("请输入解锁密码！");
+                        $(this).siblings(".admin-header-lock-input").focus();
+                    } else {
+                        var mm = {};
+                        mm['mm'] = $(this).siblings(".admin-header-lock-input").val();
+                        /*var url ="/index.php?m=vcm&c=Index&a=un_lock";
+                         $.post(url, mm, function (result) {
+                         if(result.status == 200){
+                         window.sessionStorage.setItem("lockcms",false);
+                         $(this).siblings(".admin-header-lock-input").val('');
+                         layer.closeAll("page");
+                         // layer.msg("密码正确");
+                         }else if (result.status == 400){
+                         // layer.msg("密码错误，请重新输入！");
+                         layer.msg("密码错误，请重新输入！");
+                         $(this).siblings(".admin-header-lock-input").val('').focus();
+                         }
+                         }, 'JSON');*/
+                        //return false;
+                        if (mm['mm'] == "123456") {
+                            window.sessionStorage.setItem("lockcms", false);
+                            $(this).siblings(".admin-header-lock-input").val('');
+                            layer.closeAll("page");
+                        } else {
+                            layer.msg("密码错误，请重新输入！");
+                            $(this).siblings(".admin-header-lock-input").val('').focus();
+                        }
+                    }
+                });
+                $(document).on('keydown', function (event) {
+                    if (event.keyCode == 13) {
+                        $("#unlock").click();
+                    }
+                });
+        });
+    });
+</script>
+</body>
+</html>
