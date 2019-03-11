@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 	<head>
@@ -92,3 +93,99 @@
 		
 	</script>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>Document</title>
+		<link href="project/layui/css/layui.mobile.css" />
+		<style>
+			body{
+				position: relative;
+				margin: 0;
+			}
+			
+			.box{
+				height: 933px;
+				width: 100%;
+				background: url('css/timg.jpg') center ;
+				background-size:100% 100%;
+				overflow: hidden;
+			}
+			.css{
+				background: rgba(246,246,246,0.8);
+			}
+			.home{
+				height: 68px;
+				position: absolute;
+			    background: #e15671;
+			    left: 0;
+			    overflow: visible;
+			}
+			ul{
+				padding: 0;
+				list-style:none;
+				margin: 0;
+				display: -webkit-flex;
+    			display: flex;
+    			padding-top: 18px;
+    			justify-content: space-between;
+    			font-weight:600 ;
+    			background: #000000;
+			}
+			li{
+				width: 100px;
+			    height: 30px;
+			    margin: 20px 20px;
+			    margin-top: 0;
+			    border-radius:15px ;
+			    color: rgba(246,246,246,0.5);
+			    text-align: center;
+			    font: "微软雅黑" 15px;
+			    line-height: 30px;
+			    z-index: 1;
+			}
+			li:hover{
+				cursor:pointer;
+			}
+			
+			
+		</style>
+		
+	</head>
+	<body>
+		<div class="box">
+			<div class="home" style="left: 0; top: 0; width: 140px; filter: blur(0px); "></div>
+			<ul>
+				<li>CSS</li>
+				<li>HTML</li>
+				<li>javascript</li>
+				<li>vue</li>
+				<li>React</li>
+				<li>node</li>
+				<li>视频</li>
+				<li>教程</li>
+				<li>注册</li>
+				<li>登录</li>
+			</ul>
+		</div>
+		<div class="box-row"></div>
+		
+	</body>
+	<script src="project/layui/layui.js"></script>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	</head>
+	<script>
+		$("li")
+		
+		$("li:eq(9)").click(function(){
+			window.open('new_file1.html');
+		})
+		
+		
+	</script>
+</html>
+>>>>>>> b844c9a8eab4b834be68147fe4e503fba5375a73

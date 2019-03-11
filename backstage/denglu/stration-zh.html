@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 	<head>
@@ -106,3 +107,113 @@
 		
 	</body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="../../layui/layui-v2.4.5/layui/css/layui.css">
+		<script src="../../chajian/jquery-3.2.1.min.js"></script>
+		<script src="../../layui/layui-v2.4.5/layui/layui.js"></script>
+		<style>
+			.layui-form{
+				width: 20%;
+				margin: 0 auto;
+				padding-top:10% ;
+			}
+			input{
+				text-align: center;
+			}
+			.layui-btn{
+				width: 100%;
+			}
+			.layui-form-item{
+				margin-bottom: 25px;
+			}
+			.layui-header{
+				font:20px "微软雅黑";
+				line-height: 30px;
+				text-align: center;
+			}
+			label{
+				position: absolute;
+				width: 38px;
+			    line-height: 36px;
+			    text-align: center;
+			    color: #d2d2d2;
+			}
+			.left{
+				width: 50%;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<form class="layui-form" >
+			<div class="layui-form-item input-item">
+				<label class="layui-icon layui-icon-username" for="LAY-user-login-cellphone"></label>
+				<input type="text" name="cellphone" id="LAY-user-login-cellphone" lay-verify="phone" placeholder="请输入注册时的手机号" class="layui-input">
+			</div>
+			<div class="layui-form-item input-item left">
+				<label class="layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>
+				<input type="text" placeholder="图形验证码" autocomplete="off"  class="layui-input" lay-verify="required">
+			</div>
+			<div class="layui-form-item input-item right " style="width: 40%; float: right; clear: none;">
+				<img src="../img/u=2241666278,698607827&fm=26&gp=0.jpg" style="width: 100%;height: 38px;"/>
+			</div>
+			<div class="layui-form-item input-item left">
+				<label class="layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>
+				<input type="text" placeholder="短信验证码" autocomplete="off"  class="layui-input" lay-verify="required">
+			</div>
+			<div class="layui-form-item input-item right " style="width: 40%; float: right; clear: none;">
+				<button type="button" class="layui-btn layui-btn-primary layui-btn-fluid" id="LAY-user-getsmscode">获取验证码</button>
+			</div>
+			<div class="layui-form-item btnn" lay-submit style="height: 38px; width: 100%; line-height: 38px; text-align: center;background: #009688;cursor: pointer;">
+				<div class="btn" style="color: #fff;">找回密码</div>
+			</div>
+		</form>
+		<script>
+				$(document).ready(function(){
+		    	layui.use(['element','form','jquery'],function(){
+		    		var element = layui.element,
+		    			$ = layui.jquery,
+		    			form = layui.form
+//								点击找回密码
+						$('.btn').click(function(){
+							var A=$("input:eq(0)").val(),
+					    		B=$("input:eq(1)").val(),
+					    		C=$("input:eq(2)").val();
+							if(A.length==11&&B!=''&&C!=''){
+								location.href ='stration-zh-qr.html'
+							}else{
+								
+							}
+						})
+		    	})
+//		    						点击验证码
+		    		$('button').click(function(){
+		    			var num = 60;
+		    				A = $("input:eq(0)").val(),
+		    				timer = null;
+		    			if(A = '' || A.length==11){
+		    				layer.msg('验证码已发送到您的手机', {time: 1000})
+		    				timer = setInterval(function(){
+		    				if(num < 1){
+								$('button')[0].innerHTML = '重新获取';
+		    				}else{
+		    					$('button')[0].innerHTML = num + '秒后重新获取';
+		    					num --;
+		    				}	
+		    			},1000)
+		    			}else{
+		    				layer.msg('请输入正确手机号码', {time: 1000})
+		    			}
+		    			
+		    		})
+		    	})
+		</script>
+		
+	</body>
+</html>
+>>>>>>> b844c9a8eab4b834be68147fe4e503fba5375a73

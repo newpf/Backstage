@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 	<head>
@@ -97,3 +98,104 @@
 		</script>
 	</body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="../../layui/layui-v2.4.5/layui/css/layui.css">
+		<script src="../../chajian/jquery-3.2.1.min.js"></script>
+		<script src="../../layui/layui-v2.4.5/layui/layui.js"></script>
+		<style>
+			.layui-form{
+				width: 20%;
+				margin: 0 auto;
+				padding-top:10% ;
+			}
+			input{
+				text-align: center;
+			}
+			.layui-btn{
+				width: 100%;
+			}
+			.layui-form-item{
+				margin-bottom: 25px;
+			}
+			.layui-header{
+				font:20px "微软雅黑";
+				line-height: 30px;
+				text-align: center;
+			}
+			label{
+				position: absolute;
+				width: 38px;
+			    line-height: 36px;
+			    text-align: center;
+			    color: #d2d2d2;
+			}
+			.left{
+				width: 50%;
+				float: left;
+			}
+			
+		</style>
+	</head>
+	<body>
+							<!--登陆页面-->
+		<form class="layui-form" >
+			<div class="layui-header">欢迎登陆后台管理页面</div>
+			<div class="layui-form-item input-item">
+				<label class="layui-icon layui-icon-username" for="LAY-user-login-username"></label>
+				<input type="text" placeholder="请输入用户名" autocomplete="off"  class="layui-input" lay-verify="required">
+			</div>
+			<div class="layui-form-item input-item">
+				<label class="layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+				<input type="password" placeholder="请输入密码" autocomplete="off" class="layui-input" lay-verify="required">
+			</div>
+			<div class="layui-form-item input-item left">
+				<label class="layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>
+				<input type="text" placeholder="请输入验证码" autocomplete="off"  class="layui-input" lay-verify="required">
+			</div>
+			<div class="layui-form-item input-item right " style="width: 40%; float: right; clear: none;">
+				<img src="../img/u=2241666278,698607827&fm=26&gp=0.jpg" style="width: 100%;height: 38px;"/>
+			</div>
+			<div class="layui-form-item" style="margin-bottom: 20px;">
+		          <input type="checkbox" name="remember" lay-skin="primary" title="记住密码">
+		          <a href="stration-zh.html" class="layadmin-user-jump-change layadmin-link" style="margin-top: 7px;float: right; color: #009688;">忘记密码？</a>
+        	</div>
+
+			<div class="layui-form-item btnn" lay-submit style="height: 38px; width: 100%; line-height: 38px; text-align: center;background: #009688;cursor: pointer;">
+				<div class="btn" style="color: #fff;">登陆</div>
+			</div>
+			<a href="stration-zc.html" class="layadmin-user-jump-change layadmin-link" style="margin-top: 7px;float: right; color: #009688;">注册账号</a>
+		</form>
+		<script>
+	    $(document).ready(function(){
+	    	layui.use(['element','form','jquery'],function(){
+	    		var element = layui.element,
+	    			$ = layui.jquery,
+	    			form = layui.form
+//	    				判断当内容都不等于''的时候 点击登陆跳转页面
+					$('.btn').click(function(){
+						
+						var A=$("input:eq(0)").val(),
+				    		B=$("input:eq(1)").val(),
+				    		C=$("input:eq(2)").val()
+
+						if(A!=''&&B!=''&&C!=''){
+							layer.msg('登录成功', {time: 1000},function(){
+								location.href ='../kongzhitai/stration.html'
+							})
+						}else{
+							
+						}
+					})
+
+	    	})
+	    })
+	
+		</script>
+	</body>
+</html>
+>>>>>>> b844c9a8eab4b834be68147fe4e503fba5375a73

@@ -141,7 +141,7 @@
 							</td>
 							<td>6</td>
 						    <td>小飞</td>
-						    <td>男</td>
+						    <td>女</td>
 						    <td>郑州</td>
 						    <td>WEB前端开发工程师</td>
 				      		<td>2016-2-25</td>
@@ -157,7 +157,7 @@
 							</td>
 							<td>7</td>
 						    <td>小飞</td>
-						    <td>男</td>
+						    <td>女</td>
 						    <td>郑州</td>
 						    <td>WEB前端开发工程师</td>
 				      		<td>2016-2-25</td>
@@ -188,8 +188,25 @@
 	    		var element = layui.element,
 	    			$ = layui.jquery,
 	    			form = layui.form
-//	    				判断当内容都不等于''的时候 点击登陆跳转页面
-					
+					var isShow = true;
+//									点击查找
+						$('.layui-btn:eq(0)').click(function(){
+								var $val = $('.layui-input').val();
+								$('table tbody tr').hide().filter(':contains('+$val+')').show();
+						})
+//									点击删除
+						$('.layui-btn:eq(1)').click(function(){
+							$('input[name = remember]:checked').each(function(){
+								num = $(this).parents('tr').index();
+								if($('table tbody').find("tr:eq("+num+")").remove()){
+									alert('确定')
+								}
+							})
+						})
+//									点击添加
+						$('layui-btn:eq(2)').click(function(){
+							
+						})
 
 	    	})
 	    })
