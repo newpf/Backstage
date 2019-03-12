@@ -10,6 +10,12 @@
 			tr{
 				text-align: center;
 			}
+			.red input{
+				height: ;
+				width: 40%;
+				margin: 15px 15px;
+				float: left;
+			}
 		</style>
 	</head>
 	<body>
@@ -181,6 +187,18 @@
 						</tr>
 					</tbody>
 				</table>
+				<div class="layui-form red" style="height: 357px; display: none;">
+					<input type="text" placeholder="工号" autocomplete="off"  class="layui-input" lay-verify="required">
+					<input type="text" placeholder="昵称" autocomplete="off"  class="layui-input" lay-verify="required">
+					<input type="text" placeholder="性别" autocomplete="off"  class="layui-input" lay-verify="required">
+					<input type="text" placeholder="城市" autocomplete="off"  class="layui-input" lay-verify="required">
+					<input type="text" placeholder="职业" autocomplete="off"  class="layui-input" lay-verify="required">
+					<input type="text" placeholder="加入时间" autocomplete="off"  class="layui-input" lay-verify="required">
+					<input type="text" placeholder="签名" autocomplete="off"  class="layui-input" lay-verify="required">
+					<div class="layui-form-item btnn" lay-submit style="height: 38px; width: 100%; line-height: 38px; text-align: center;background: #009688;cursor: pointer;">
+				<div class="btn" style="color: #fff;">确定</div>
+			</div>
+				</div>
 	</body>
 	<script>
 	    $(document).ready(function(){
@@ -199,13 +217,32 @@
 							$('input[name = remember]:checked').each(function(){
 								num = $(this).parents('tr').index();
 								if($('table tbody').find("tr:eq("+num+")").remove()){
-									alert('确定')
+									
 								}
 							})
 						})
+//									点击修改
+						$('.layui-btn:eq(2)').click(function(){
+							$('input[name = remember]:checked').each(function(){
+								if (!$('input[name = remember]:checked')) {
+									layer.msg('sad')
+								}else{
+									layer.open({
+										type:1,
+										area:['600px','400px'],
+										content:$('.red')
+									});
+								}
+							})
+						})
+						
 //									点击添加
-						$('layui-btn:eq(2)').click(function(){
-							
+						$('.layui-btn:eq(3)').click(function(){
+							layer.open({
+								type:1,
+								area:['600px','400px'],
+								content:$('.red')
+							});
 						})
 
 	    	})
