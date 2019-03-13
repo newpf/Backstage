@@ -188,13 +188,13 @@
 					</tbody>
 				</table>
 				<div class="layui-form red" style="height: 357px; display: none;">
-					<input type="text" placeholder="工号" autocomplete="off"  class="layui-input" lay-verify="required">
-					<input type="text" placeholder="昵称" autocomplete="off"  class="layui-input" lay-verify="required">
-					<input type="text" placeholder="性别" autocomplete="off"  class="layui-input" lay-verify="required">
-					<input type="text" placeholder="城市" autocomplete="off"  class="layui-input" lay-verify="required">
-					<input type="text" placeholder="职业" autocomplete="off"  class="layui-input" lay-verify="required">
-					<input type="text" placeholder="加入时间" autocomplete="off"  class="layui-input" lay-verify="required">
-					<input type="text" placeholder="签名" autocomplete="off"  class="layui-input" lay-verify="required">
+					<input type="text" placeholder="工号" autocomplete="off"  class="layui-input">
+					<input type="text" placeholder="昵称" autocomplete="off"  class="layui-input">
+					<input type="text" placeholder="性别" autocomplete="off"  class="layui-input">
+					<input type="text" placeholder="城市" autocomplete="off"  class="layui-input">
+					<input type="text" placeholder="职业" autocomplete="off"  class="layui-input">
+					<input type="text" placeholder="加入时间" autocomplete="off"  class="layui-input">
+					<input type="text" placeholder="签名" autocomplete="off"  class="layui-input">
 					<div class="layui-form-item btnn" lay-submit style="height: 38px; width: 100%; line-height: 38px; text-align: center;background: #009688;cursor: pointer;">
 				<div class="btn" style="color: #fff;">确定</div>
 			</div>
@@ -224,15 +224,62 @@
 //									点击修改
 						$('.layui-btn:eq(2)').click(function(){
 							$('input[name = remember]:checked').each(function(){
-								if (!$('input[name = remember]:checked')) {
-									layer.msg('sad')
-								}else{
+//								if (!$('input[name = remember]:checked')) {
+//									layer.msg('sad')
+//								}else{7
+//	
 									layer.open({
 										type:1,
 										area:['600px','400px'],
-										content:$('.red')
-									});
-								}
+										shadeClose: true,
+										content:$('.red'),	
+									})
+									var parent_td=$('input[name = remember]:checked').parent().parent().parent().parent().children();
+									var arr=[];
+									for(var i=0;i<parent_td.length;i++){
+										var arr_s=parent_td[i].innerText
+										arr.push(arr_s)
+									}
+									arr.shift()
+									var input_zh=$(".red").find("input")
+									for(var i=0;i<arr.length;i++){
+											input_zh[i].value=arr[i]
+									}
+//									var child_gh=parent_tr.find("td:eq(1)").text()
+//									var child_nm=parent_tr.find("td:eq(2)").text()
+//									var child_xb=parent_tr.find("td:eq(3)").text()
+//									var child_cs=parent_tr.find("td:eq(4)").text()
+//									var child_zy=parent_tr.find("td:eq(5)").text()
+//									var child_jr=parent_tr.find("td:eq(6)").text()
+//									var child_qm=parent_tr.find("td:eq(7)").text()
+									
+									//添加到遮罩层
+//									$(".red").find("input:eq(0)").val(child_gh)
+//									$(".red").find("input:eq(1)").val(child_gh)
+//									$(".red").find("input:eq(2)").val(child_gh)
+//									$(".red").find("input:eq(3)").val(child_gh)
+//									$(".red").find("input:eq(4)").val(child_gh)
+//									$(".red").find("input:eq(5)").val(child_gh)
+//									$(".red").find("input:eq(6)").val(child_gh)
+//									$(".red").find("input:eq(7)").val(child_gh)
+//								}
+								
+//												点击确定获取val添加到表单
+								$('div .btn').click(function(){
+									layer.closeAll('page');
+									var arrinps=[],
+										input_zh=$(".red").find("input")
+									for(var i=0;i<input_zh.length;i++){
+										var arr_inp=input_zh[i].value
+										arrinps.push(arr_inp)
+									}
+									arrinps.unshift("")
+									console.log(arrinps)
+									var parent_td=$('input[name = remember]:checked').parent().parent().parent().parent().children();
+									for(var i=1;i<parent_td.length;i++){
+											parent_td[i].innerText=arrinps[i]
+									}
+								})
 							})
 						})
 						
@@ -243,6 +290,22 @@
 								area:['600px','400px'],
 								content:$('.red')
 							});
+							$('div .btn').click(function(){
+									layer.closeAll('page');	
+									var arrinps=[],
+										input_zh=$(".red").find("input")
+									for(var i=0;i<input_zh.length;i++){
+										var arr_inp=input_zh[i].value
+										arrinps.push(arr_inp)
+									}
+									arrinps.unshift("")
+									console.log(arrinps)
+									var parent_td=$('input[name = remember]:checked').parent().parent().parent().parent().children();
+									for(var i=1;i<parent_td.length;i++){
+										parent_td[i].innerText=arrinps[i];
+									}					
+									$("tbody tr").clone().appendTo("td");
+								})
 						})
 
 	    	})
