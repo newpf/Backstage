@@ -16,9 +16,16 @@
 				margin: 15px 15px;
 				float: left;
 			}
+			.red1 input{
+				height: ;
+				width: 40%;
+				margin: 15px 15px;
+				float: left;
+			}
 		</style>
 	</head>
 	<body>
+											<!--表单导航按钮-->
 		<div class="btn" style="width: 50%; margin: 20px auto; text-align: center; ">
 					<button class="layui-btn">查找</button>
 					<button class="layui-btn">删除</button>
@@ -27,7 +34,7 @@
 		</div>
 		<input type="text" class="layui-input" style="width: 50%; margin: 20px auto;"/>
 		<table class="layui-table" style="width: 50%; margin: 0 auto;">
-			
+								<!--表单高度-->
 					<colgroup>
 							    <col width="50">
 					            <col width="50">
@@ -38,6 +45,7 @@
 							    <col width="50">
 							    <col width="50">
 					</colgroup>
+											<!--表单-->
 					<thead>
 							<tr>
 								<th style="text-align: center;">
@@ -187,6 +195,7 @@
 						</tr>
 					</tbody>
 				</table>
+											<!--点击修改的遮罩层-->
 				<div class="layui-form red" style="height: 357px; display: none;">
 					<input type="text" placeholder="工号" autocomplete="off"  class="layui-input">
 					<input type="text" placeholder="昵称" autocomplete="off"  class="layui-input">
@@ -197,6 +206,19 @@
 					<input type="text" placeholder="签名" autocomplete="off"  class="layui-input">
 					<div class="layui-form-item btnn" lay-submit style="height: 38px; width: 100%; line-height: 38px; text-align: center;background: #009688;cursor: pointer;">
 				<div class="btn" style="color: #fff;">确定</div>
+			</div>
+				</div>
+											<!--点击添加的遮罩层-->
+				<div class="layui-form red1" style="height: 357px; display: none;">
+					<input type="text" placeholder="工号" autocomplete="off"  class="layui-input">
+					<input type="text" placeholder="昵称" autocomplete="off"  class="layui-input">
+					<input type="text" placeholder="性别" autocomplete="off"  class="layui-input">
+					<input type="text" placeholder="城市" autocomplete="off"  class="layui-input">
+					<input type="text" placeholder="职业" autocomplete="off"  class="layui-input">
+					<input type="text" placeholder="加入时间" autocomplete="off"  class="layui-input">
+					<input type="text" placeholder="签名" autocomplete="off"  class="layui-input">
+					<div class="layui-form-item btnn" lay-submit style="height: 38px; width: 100%; line-height: 38px; text-align: center;background: #009688;cursor: pointer;">
+				<div class="btn1" style="color: #fff;">确定</div>
 			</div>
 				</div>
 	</body>
@@ -227,7 +249,7 @@
 //								if (!$('input[name = remember]:checked')) {
 //									layer.msg('sad')
 //								}else{7
-//	
+//										点击修改弹出遮罩层
 									layer.open({
 										type:1,
 										area:['600px','400px'],
@@ -236,14 +258,16 @@
 									})
 									var parent_td=$('input[name = remember]:checked').parent().parent().parent().parent().children();
 									var arr=[];
+//												循环出他的文本内容
 									for(var i=0;i<parent_td.length;i++){
-										var arr_s=parent_td[i].innerText
-										arr.push(arr_s)
+										var arr_s=parent_td[i].innerText;
+										arr.push(arr_s);
 									}
 									arr.shift()
+//												循环到input里面
 									var input_zh=$(".red").find("input")
 									for(var i=0;i<arr.length;i++){
-											input_zh[i].value=arr[i]
+											input_zh[i].value=arr[i];
 									}
 //									var child_gh=parent_tr.find("td:eq(1)").text()
 //									var child_nm=parent_tr.find("td:eq(2)").text()
@@ -266,18 +290,22 @@
 								
 //												点击确定获取val添加到表单
 								$('div .btn').click(function(){
+//													点击确定,关闭遮罩层
 									layer.closeAll('page');
 									var arrinps=[],
-										input_zh=$(".red").find("input")
+//													遮罩层里的input列出
+										input_zh=$(".red").find("input") 
+//													循环成一个数组
 									for(var i=0;i<input_zh.length;i++){
-										var arr_inp=input_zh[i].value
+										var arr_inp=input_zh[i].value;
 										arrinps.push(arr_inp)
 									}
-									arrinps.unshift("")
-									console.log(arrinps)
+									arrinps.unshift("");
+									console.log(arrinps);
+//													input内容循环到表单
 									var parent_td=$('input[name = remember]:checked').parent().parent().parent().parent().children();
 									for(var i=1;i<parent_td.length;i++){
-											parent_td[i].innerText=arrinps[i]
+											parent_td[i].innerText=arrinps[i];
 									}
 								})
 							})
@@ -285,26 +313,32 @@
 						
 //									点击添加
 						$('.layui-btn:eq(3)').click(function(){
+//													点击添加弹出遮罩层
 							layer.open({
 								type:1,
 								area:['600px','400px'],
-								content:$('.red')
+								content:$('.red1')
 							});
-							$('div .btn').click(function(){
+							$('div .btn1').click(function(){
+//													点击确定,关闭遮罩层
 									layer.closeAll('page');	
 									var arrinps=[],
-										input_zh=$(".red").find("input")
+										input_zh=$(".red1").find("input"),
+										$tr=$("<tr></tr>")
+//													循环把我输入的内容在input添加到tr里面的td
 									for(var i=0;i<input_zh.length;i++){
-										var arr_inp=input_zh[i].value
-										arrinps.push(arr_inp)
+										$tr.append("<td>"+input_zh[i].value+"</td>");
 									}
-									arrinps.unshift("")
-									console.log(arrinps)
-									var parent_td=$('input[name = remember]:checked').parent().parent().parent().parent().children();
-									for(var i=1;i<parent_td.length;i++){
-										parent_td[i].innerText=arrinps[i];
-									}					
-									$("tbody tr").clone().appendTo("td");
+//													勾选默认空数组,需要循环以后添加进去
+									$tr.prepend('<td style="text-align: center;"><form class="layui-form" ><div class="layui-form-item" style=""><input type="checkbox" name="remember" lay-skin="primary" ></div></form></td>');
+//													添加一组tr
+									$("tbody").append($tr);
+//													动态添加失效重新渲染
+									form.render();
+//									var parent_td=$('input[name = remember]:checked').parent().parent().parent().parent().children();
+//									for(var i=1;i<parent_td.length;i++){
+//										parent_td[i].innerText=arrinps[i];
+//									}			
 								})
 						})
 
