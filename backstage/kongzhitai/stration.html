@@ -10,126 +10,129 @@
 		<script src="../../layui/layui-v2.4.5/layui/layui.js"></script>
 		<script src="../../js/stration.js"></script>
 	</head>
-	<body >
-		<div class="layui-container ">
-			 <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-
-    </div>
+	<body class="layui-layout-body" >
+		<div class="layui-layout layui-layout-admin">	
+									<!--上侧导航条-->
+			    	<div class="layui-header">
+			    		<div class="layui-logo">欢迎来到莱唔科技</div>
+						<ul class="layui-nav layui-layout-left" lay-filter="side">
+							<li class="layui-nav-item layadmin-flexible left" lay-unselect>
+						       	<a href="javascript:;" class="kit-side-fold" title="侧边伸缩">
+						           <i class="layui-icon layui-icon-shrink-right" aria-hidden="true" ></i>
+						        </a>
+					        </li>
+		
+						  	<li class="layui-nav-item left">
+							    <a href="">控制台</a>				
+						  	</li>
+							<li class="layui-nav-item left">
+							    <a href="">个人中心</a>
+							</li>
+							</ul>
+						<ul class="layui-nav layui-layout-right">
+							<li class="layui-nav-item">
+							    <a href="javascript:;"><img src="../img/20190226142123.jpg" class="layui-nav-img">我</a>
+							    <dl class="layui-nav-child">
+							      <dd><a href="javascript:;" _href="../denglu/stration-xg.html"><cite>修改密码</cite></a></dd>
+							      <dd><a href="../denglu/stration-dl.html">退出登录</a></dd>
+							    </dl>							   
+							</li>
+						</ul>
+			    	</div>
 											<!--左侧导航条-->
-			<div class="layui-row">
-			    	<ul class="layui-nav layui-nav-tree layui-nav-side layui-side layui-bg-black x-side " id="sideul"   lay-filter="side" lay-shrink="all">
-			    		<li class="layui-header">
-			    			<img src="../img/20190226142123.jpg" width="100px" height="100px">
-			    			<span class="color">莱唔科技WEB前端开发工程师</span>
-			    			<span class="color-tow">钮朋飞</span>
-			    		</li>
-			    		<li class="layui-nav-item">
-			    			<a href="javascript:;">
-			    				<span class="layui-icon">&#xe68e;</span>
-			    				<i>主页</i>
-			    				<span class="layui-nav-more"></span>
-			    			</a>
-			    			<dl class="layui-nav-child">
-			    				<dd><a href="javascript:;" _href="../zhuye/stration-one.html" ><cite>更改个人信息</cite></a></dd>
-			    				<dd><a href="javascript:;" _href="../zhuye/stration-tow.html"><cite>表单</cite></a></dd>
-			    				<dd><a href="javascript:;" _href="../zhuye/date_mdui.html"><cite>日历</cite></a></dd>
-			    				<dd><a href="javascript:;" _href="../zhuye/stration-three.html"><cite>时间线</cite></a></dd>
-			    			</dl>
-			    		</li>
-			    		<li class="layui-nav-item ">
-			    			<a href="javascript:;">
-			    				<span class="layui-icon">&#xe665;</span>
-			    				<i>布局</i>
-			    				<span class="layui-nav-more"></span>
-			    			</a>
-			    			<dl class="layui-nav-child">
-			    			 	<dd><a href="javascript:;">主页一</a></dd>
-			    				<dd><a href="javascript:;">主页二</a></dd>
-			    				<dd><a href="javascript:;">主页三</a></dd>
-			    				<dd><a href="javascript:;">主页四</a></dd>
-			    			</dl>
-			    		</li>
-			    		<li class="layui-nav-item ">
-			    			<a href="javascript:;">
-			    				<span class="layui-icon">&#xe62c;</span>
-			    				<i>统计图表</i>
-			    				<span class="layui-nav-more"></span>
-			    			</a>
-			    			<dl class="layui-nav-child">
-			    				<dd><a href="javascript:;" _href="../tongji/stration-one.html"><cite>轮播</cite></a></dd>
-			    				<dd><a href="javascript:;" _href="../tongji/stration-tow.html"><cite>jquery树</cite></a></dd>
-			    				<dd><a href="javascript:;" _href="../tongji/stration-three.html"><cite>增删改查</cite></a></dd>
-			    				<dd><a href="javascript">主页四</a></dd>
-			    			</dl>
-			    		</li>
-			    		<li class="layui-nav-item  ">
-			    			<a href="javascript:;">
-			    				<span class="layui-icon">&#xe609;</span>
-			    				<i>信箱</i>
-			    				<span class="layui-nav-more"></span>
-			    			</a>
-			    			<dl class="layui-nav-child">
-			    				<dd><a href="javascript">主页一</a></dd>
-			    				<dd><a href="javascript">主页二</a></dd>
-			    				<dd><a href="javascript">主页三</a></dd>
-			    				<dd><a href="javascript">主页四</a></dd>
-			    			</dl>
-			    		</li>
-			    		<li class="layui-nav-item ">
-			    			<a href="javascript:;">
-			    				<span class="layui-icon">&#xe63c;</span>
-			    				<i>表单</i>
-			    				<span class="layui-nav-more"></span>
-			    			</a>
-			    			<dl class="layui-nav-child">
-			    				<dd><a href="javascript">主页一</a></dd>
-			    				<dd><a href="javascript">主页二</a></dd>
-			    				<dd><a href="javascript">主页三</a></dd>
-			    				<dd><a href="javascript">主页四</a></dd>
-			    			</dl>
-			    		</li>
-			    		<li class="layui-nav-item ">
-			    			<a href="javascript:;">
-			    				<span class="layui-icon">&#xe655;</span>
-			    				<i>页面</i>
-			    				<span class="layui-nav-more"></span>
-			    			</a>
-			    			<dl class="layui-nav-child">
-			    				<dd><a href="javascript">主页一</a></dd>
-			    				<dd><a href="javascript">主页二</a></dd>
-			    				<dd><a href="javascript">主页三</a></dd>
-			    				<dd><a href="javascript">主页四</a></dd>
-			    			</dl>
-			    		</li>
-			    	</ul>
-			</div>
-			<div class="site-content">
-										<!--上层导航条-->
-				<ul class="layui-nav layui-bg-blue " lay-filter="side" >
-					<li class="layui-nav-item layadmin-flexible" lay-unselect>
-				       	<a href="javascript:;" class="kit-side-fold" title="侧边伸缩">
-				           <i class="layui-icon layui-icon-shrink-right" aria-hidden="true" ></i>
-				        </a>
-			        </li>
-
-				  	<li class="layui-nav-item">
-					    <a href="">控制台<span class="layui-badge">0</span></a>
-					</li>
-					<li class="layui-nav-item">
-					    <a href="">个人中心<span class="layui-badge-dot"></span></a>
-					</li>
-					<li class="layui-nav-item right">
-					    <a href="javascript:;"><img src="../img/20190226142123.jpg" class="layui-nav-img">我</a>
-					    <dl class="layui-nav-child">
-					      <dd><a href="javascript:;" _href="../denglu/stration-xg.html"><cite>修改密码</cite></a></dd>
-					      <dd><a href="../denglu/stration-dl.html">退出登录</a></dd>
-					    </dl>
-					</li>
+						<div class="layui-side layui-bg-black">
+				    	<ul class="layui-nav layui-nav-tree layui-nav-side layui-side layui-bg-black x-side " id="sideul"   lay-filter="side" lay-shrink="all">
+				    		<li class=" header">
+				    			<img src="../img/20190226142123.jpg" width="100px" height="100px">
+					    		<span class="color">莱唔科技WEB前端开发工程师</span>
+					    		<span class="color-tow">钮朋飞</span>
+			    			</li>
+				    		<li class="layui-nav-item">
+				    			<a href="javascript:;">
+				    				<span class="layui-icon">&#xe68e;</span>
+				    				<i>主页</i>
+				    				<span class="layui-nav-more"></span>
+				    			</a>
+				    			<dl class="layui-nav-child">
+				    				<dd><a href="javascript:;" _href="../zhuye/stration-one.html" ><cite>更改个人信息</cite></a></dd>
+				    				<dd><a href="javascript:;" _href="../zhuye/stration-tow.html"><cite>表单</cite></a></dd>
+				    				<dd><a href="javascript:;" _href="../zhuye/date_mdui.html"><cite>日历</cite></a></dd>
+				    				<dd><a href="javascript:;" _href="../zhuye/stration-three.html"><cite>时间线</cite></a></dd>
+				    			</dl>
+				    		</li>
+				    		<li class="layui-nav-item ">
+				    			<a href="javascript:;">
+				    				<span class="layui-icon">&#xe665;</span>
+				    				<i>布局</i>
+				    				<span class="layui-nav-more"></span>
+				    			</a>
+				    			<dl class="layui-nav-child">
+				    			 	<dd><a href="javascript:;">主页一</a></dd>
+				    				<dd><a href="javascript:;">主页二</a></dd>
+				    				<dd><a href="javascript:;">主页三</a></dd>
+				    				<dd><a href="javascript:;">主页四</a></dd>
+				    			</dl>
+				    		</li>
+				    		<li class="layui-nav-item ">
+				    			<a href="javascript:;">
+				    				<span class="layui-icon">&#xe62c;</span>
+				    				<i>统计图表</i>
+				    				<span class="layui-nav-more"></span>
+				    			</a>
+				    			<dl class="layui-nav-child">
+				    				<dd><a href="javascript:;" _href="../tongji/stration-one.html"><cite>轮播</cite></a></dd>
+				    				<dd><a href="javascript:;" _href="../tongji/stration-tow.html"><cite>jquery树</cite></a></dd>
+				    				<dd><a href="javascript:;" _href="../tongji/stration-three.html"><cite>增删改查</cite></a></dd>
+				    				<dd><a href="javascript">主页四</a></dd>
+				    			</dl>
+				    		</li>
+				    		<li class="layui-nav-item  ">
+				    			<a href="javascript:;">
+				    				<span class="layui-icon">&#xe609;</span>
+				    				<i>信箱</i>
+				    				<span class="layui-nav-more"></span>
+				    			</a>
+				    			<dl class="layui-nav-child">
+				    				<dd><a href="javascript">主页一</a></dd>
+				    				<dd><a href="javascript">主页二</a></dd>
+				    				<dd><a href="javascript">主页三</a></dd>
+				    				<dd><a href="javascript">主页四</a></dd>
+				    			</dl>
+				    		</li>
+				    		<li class="layui-nav-item ">
+				    			<a href="javascript:;">
+				    				<span class="layui-icon">&#xe63c;</span>
+				    				<i>表单</i>
+				    				<span class="layui-nav-more"></span>
+				    			</a>
+				    			<dl class="layui-nav-child">
+				    				<dd><a href="javascript">主页一</a></dd>
+				    				<dd><a href="javascript">主页二</a></dd>
+				    				<dd><a href="javascript">主页三</a></dd>
+				    				<dd><a href="javascript">主页四</a></dd>
+				    			</dl>
+				    		</li>
+				    		<li class="layui-nav-item ">
+				    			<a href="javascript:;">
+				    				<span class="layui-icon">&#xe655;</span>
+				    				<i>页面</i>
+				    				<span class="layui-nav-more"></span>
+				    			</a>
+				    			<dl class="layui-nav-child">
+				    				<dd><a href="javascript">主页一</a></dd>
+				    				<dd><a href="javascript">主页二</a></dd>
+				    				<dd><a href="javascript">主页三</a></dd>
+				    				<dd><a href="javascript">主页四</a></dd>
+				    			</dl>
+				    		</li>
+				    	</ul>
+					</div>
+			<div class="layui-body">
 					  							<!--选项卡-->
-				</ul>
+				
 									<!--lay-filter="x-tab"点击新增一个
 									lay-allowClose="true"删除-->
-				<div class="layui-tab layui-tab-card" lay-filter="x-tab" lay-allowClose="true">
+				<div class="layui-tab layui-tab-card " lay-filter="x-tab" lay-allowClose="true">
 					<ul class="layui-tab-title">
 						<li class="layui-this layui-unselect">介绍<i class="layui-icon layui-unselect layui-tab-close"></i></li>
 					</ul>
@@ -140,9 +143,10 @@
 					</div>
 				</div>
 			</div>
+			<div class="layui-footer" style="text-align: center;">
+				莱唔
 			</div>
-			
-  	</div>
+		</div>
 	</body>
 
 </html>
