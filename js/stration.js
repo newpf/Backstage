@@ -1,8 +1,3 @@
-			
-			
-			
-			
-			
 		$(document).ready(function(){
 				layui.use(['element','form','table','carousel'], function(){
 				  	var element = layui.element,
@@ -87,26 +82,31 @@
 //					        				收缩以后的宽度
 					            $('.layui-side.layui-bg-black').width(60); 
 //					           				 内容区域扩大
-					            $('.site-content').css('margin-left', 60 +'px');
+					            $('.layui-body').css('margin-left', -140 +'px');
 //					            			header
-					            $('.x-side li:eq(1)').css('margin-top', 270 +'px');
+					            $('.x-side li:eq(1)').css('margin-top', 199 +'px');
+//					            			底部区域
+								$('.layui-footer').css('margin-left', -140 +'px');
 					            isShow =false;
 					        }else{
 					            $('.layui-side.layui-bg-black').width(200);
-					            $('.site-content').css('margin-left', 200 +'px');
+					            $('.layui-body').css('margin-left', 0 +'px');
 					            $('.x-side li:eq(1)').css('margin-top', 0 +'px');
+					            $('.layui-footer').css('margin-left', 0 +'px');
 					            isShow =true;
 					        }
 					    });
+//					    					点击收缩以后的菜单
 					    $('#sideul li').click(function(){
 					    	isShow =true;
 					    	if($('#sideul').width() == 60){
 					    		$('#sideul').width(200);
 					    		$('.layui-nav-item i').show();
 					            $('.layui-nav-more').show();
-								$('.layui-header').show();
-					    		$('.site-content').css('margin-left', 200 +'px');
+								$('.header').show();
+					    		$('.layui-body').css('margin-left', 0 +'px');
 					            $('.x-side li:eq(1)').css('margin-top', 0 +'px');
+					            $('.layui-footer').css('margin-left', 0 +'px');
 					            $('.layui-nav-child dd').show();
 					    	}
 					    })
@@ -125,5 +125,5 @@
 					        	$('.site-content').css('margin-left', 200 +'px');
 					        }
 						})
-					        
-		});
+					});
+					   
