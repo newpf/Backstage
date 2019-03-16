@@ -109,7 +109,7 @@
 					    		$('.layui-body').css('margin-left', 0 +'px');
 					            $('.x-side li:eq(1)').css('margin-top', 0 +'px');
 					            $('.layui-footer').css('margin-left', 0 +'px');
-					            $('.layui-header').css('margin-left', 0 +'px')
+					            $('.layui-header').css('margin-left', 0 +'px');
 					            $('.layui-nav-child dd').show();
 					    	}
 					    })
